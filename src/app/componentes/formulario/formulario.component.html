@@ -1,0 +1,79 @@
+<!--
+<div class="container text-center">
+  <h2>formulario html</h2>
+  <div class="row">
+    <div class="col mb-3">
+        <input type="text" [(ngModel)]="txtNombre" class="form-control" id="exampleFormControlInput1" placeholder="ingrese texto">
+        {{txtNombre}}
+    </div>
+    <div class="col">
+      <button (click)="agregar()" type="button" class="btn btn-success">AGREGAR A LISTA</button>
+    </div>
+  </div>
+  <div>
+    <div class="col">
+      <ul class="list-group" *ngFor="let nombre of listaNombres">
+        <li class="list-group-item active" aria-current="true">{{nombre}}</li>
+        <br>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+ -->
+
+
+
+<div class="container text-center">
+  <h2>formulario html</h2>
+  <div class="row">
+    <div class="col mb-3">
+        <input type="text" [(ngModel)]="persona.Nombre" class="form-control" id="exampleFormControlInput1" placeholder="ingrese nombre">
+    </div>
+    <div class="col mb-3">
+      <input type="number" [(ngModel)]="persona.Edad" class="form-control" id="exampleFormControlInput1" placeholder="ingrese edad">
+  </div>
+    <div class="col mb-3">
+      <input type="text" [(ngModel)]="persona.Disponibilidad" class="form-control" id="exampleFormControlInput1" placeholder="Disponibilidad">
+    </div>
+    <div class="col">
+      <button (click)="agregar()" type="button" class="btn btn-success">AGREGAR A LISTA</button>
+    </div>
+  </div>
+  <div>
+    <div class="col">
+      <ul class="list-group" *ngFor="let p of listaPersonas">
+        <li class="list-group-item active" aria-current="true">{{p.Nombre}}</li>
+        <li *ngIf="p.Edad > 30; else validacionEstudiante">
+          <span style="color: red;"><i>Este estudiante es adulto</i></span>
+        </li>
+        <ng-template #validacionEstudiante>
+          Este estudiante aun joven
+        </ng-template>
+        <br>
+      </ul>
+    </div>
+  </div>
+</div>
+<h3>CARACTERISTICAS DE DITTO</h3>
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{pokemon?.name}}</h5>
+    <p class="card-text">Base Experiencia: {{pokemon?.base_experience}}</p>
+    <p class="card-text">URL: <a> {{pokemon?.location_area_encounters}}</a> </p>
+    <a href="#" class="btn btn-primary">Ver</a>
+  </div>
+</div>
+<div *ngFor="let p of listaPokemones">
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{p?.name}}</h5>
+      <p class="card-text">URL: <a> {{p?.url}}</a> </p>
+      <a href="#" class="btn btn-primary">Ver</a>
+    </div>
+  </div>
+</div>
